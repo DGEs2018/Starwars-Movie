@@ -5,7 +5,7 @@ import './App.css';
 function App() {
 	return (
 		<div className="App" style={{ display: 'flex', flexDirection: 'row' }}>
-			<div style={{ display: 'flex', flexDirection: 'column' }}>
+			<div style={{ display: 'flex', flexDirection: 'column', marginTop: '50px' }}>
 				<div
 					style={{
 						display: 'inline-block',
@@ -23,7 +23,7 @@ function App() {
 					</ul>
 				</div>
 			</div>
-			<div style={{ display: 'flex', flexDirection: 'column' }}>
+			<div style={{ display: 'flex', flexDirection: 'column', marginTop: '50px' }}>
 				<div
 					style={{
 						display: 'inline-block',
