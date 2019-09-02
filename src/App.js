@@ -15,13 +15,13 @@ function App() {
 						border: '1px solid darkgrey'
 					}}
 				/>
-				<div style={{ display: 'inline-block' }}>
-					<ul>
-						<li>First</li>
-						<li>Second</li>
-						<li>Third</li>
-					</ul>
-				</div>
+				<button>Movies</button>
+
+				<ul>
+					<li>First</li>
+					<li>Second</li>
+					<li>Third</li>
+				</ul>
 			</div>
 			<div style={{ display: 'flex', flexDirection: 'column', marginTop: '50px' }}>
 				<div
@@ -33,13 +33,12 @@ function App() {
 						border: '1px solid darkgrey'
 					}}
 				/>
-				<div style={{ display: 'inline-block' }}>
-					<ul>
-						<li>First</li>
-						<li>Second</li>
-						<li>Third</li>
-					</ul>
-				</div>
+				<button>Characters in the Movies</button>
+				<ul>
+					<li>First</li>
+					<li>Second</li>
+					<li>Third</li>
+				</ul>
 			</div>
 		</div>
 	);
