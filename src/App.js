@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 // import the data
+import { movies, characters } from './data';
+import List from './Components/List';
 
 function App() {
 	const [ listCharacters, setListCharacters ] = useState('');
@@ -39,13 +41,15 @@ function App() {
 				>
 					Movies
 				</button>
-				{listMovies === true ? (
+				{/* 	{listMovies === true ? (
 					<ul>
 						<li>Starwars 1</li>
 						<li>Starwars 2</li>
 						<li>A New Hope</li>
 					</ul>
-				) : null}
+				) : null} */}
+				<List listItems={movies} onClick={handleShowMovies} />
+				{/* {listMovies === true ? { movies } : null} */}
 			</div>
 			<div style={{ display: 'flex', flexDirection: 'column', marginTop: '50px' }}>
 				<button
@@ -60,6 +64,7 @@ function App() {
 				>
 					Characters in the Movies
 				</button>
+				<List listItems={characters} onClick={handleShowCharacters} />
 				{listCharacters === true ? (
 					<ul>
 						<li>Skywalker</li>
