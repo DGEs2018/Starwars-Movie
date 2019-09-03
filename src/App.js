@@ -1,21 +1,29 @@
 import React, { useState } from 'react';
-
-import logo from './logo.svg';
 import './App.css';
+// import the data
 
 function App() {
-	const [ listMovies, setListMovies ] = useState('');
 	const [ listCharacters, setListCharacters ] = useState('');
+	const [ listMovies, setListMovies ] = useState(false);
 
-	const movies = [ 'Starwars 1', 'Starwars 2', 'A New Hope' ];
-	const showMovies = movies.map((movie) => <li>{movie}</li>);
+	/* const showMovies = [ 'Starwars 1', 'Starwars 2', 'A New Hope' ];
+	const showCharacters = [ 'Luke Skywalker', 'C3PO', 'R2D2' ]; */
+	// const showMovies = movies.map((movie) => <li>{movie}</li>);
 
-	const handleShowMovies = (e) => setListMovies(showMovies);
-	const handleShowCharacters = (e) => {
-		setListCharacters('e.target.value');
+	const handleShowMovies = () => {
+		// setListMovies(!listMovies); this toggles between on and off as an accordion
+		setListMovies(true);
+		setListCharacters(false);
 	};
 
-	// const listMovieRender = React.createClass;
+	// console.log(handleShowMovies);
+
+	// const handleShowMovies = (e) => setListMovies(showMovies);
+	const handleShowCharacters = () => {
+		setListCharacters(true);
+		setListMovies(false);
+	};
+
 	return (
 		<div className="App" style={{ display: 'flex', flexDirection: 'row' }}>
 			<div style={{ display: 'flex', flexDirection: 'column', marginTop: '50px' }}>
@@ -31,11 +39,13 @@ function App() {
 				>
 					Movies
 				</button>
-				<ul value={listMovies}>
-					<li>First Movie</li>
-					<li>Second Movie</li>
-					<li>Third Movie</li>
-				</ul>
+				{listMovies === true ? (
+					<ul>
+						<li>Starwars 1</li>
+						<li>Starwars 2</li>
+						<li>A New Hope</li>
+					</ul>
+				) : null}
 			</div>
 			<div style={{ display: 'flex', flexDirection: 'column', marginTop: '50px' }}>
 				<button
@@ -50,11 +60,13 @@ function App() {
 				>
 					Characters in the Movies
 				</button>
-				<ul value={listCharacters}>
-					<li>Character one</li>
-					<li>Character two</li>
-					<li>Character three</li>
-				</ul>
+				{listCharacters === true ? (
+					<ul>
+						<li>Skywalker</li>
+						<li>C3PO</li>
+						<li>R2D2</li>
+					</ul>
+				) : null}
 			</div>
 		</div>
 	);
