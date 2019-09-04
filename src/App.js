@@ -4,6 +4,7 @@ import './Components/List.css';
 // import the data
 import { movies, characters } from './data';
 import List from './Components/List';
+import ListItem from './Components/ListItem';
 // import ListItem from './Components/ListItem';
 
 function App(props) {
@@ -44,7 +45,7 @@ function App(props) {
 						display: 'inline-block',
 						width: '300px',
 						height: '100px',
-						backgroundColor: 'darkgrey',
+						backgroundColor: 'skyblue',
 						border: '1px solid black'
 					}}
 					onClick={handleShowMovies}
@@ -59,8 +60,13 @@ function App(props) {
 						<li>A New Hope</li>
 					</ul>
 				) : null */}
-				{showMovies ? <List listItems={movies} /> : <List listItems={characters} />}
+				{/* {showMovies ? <List listItems={movies} /> : <List listItems={characters} />} */}
 				{/* if the user clicks on showMovies then the list of movies should be shown, else the list of characters */}
+				{/* {showMovies ? <ListItem movieProp={movieProp} /> : <ListItem characterProp={characterProp}>} */}
+				{/* {showMovies ? { ListItem } : null} */}
+				{/* <ListItem value={value} /> */}
+
+				<List listItems={showMovies ? movies : characters} />
 			</div>
 			<div style={{ display: 'flex', flexDirection: 'column', marginTop: '50px' }}>
 				<button
@@ -68,7 +74,7 @@ function App(props) {
 						display: 'inline-block',
 						width: '300px',
 						height: '100px',
-						backgroundColor: 'grey',
+						backgroundColor: 'turquoise',
 						border: '1px solid darkgrey'
 					}}
 					onClick={handleShowCharacters}

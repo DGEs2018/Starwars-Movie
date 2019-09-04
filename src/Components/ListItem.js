@@ -1,8 +1,9 @@
 import React from 'react';
-import List from './List';
 
 const ListItem = (props) => {
-	return <div>{props.value}</div>;
+	// console.log(props);
+
+	return <div>{props.element}</div>;
 };
 
 export default ListItem;
