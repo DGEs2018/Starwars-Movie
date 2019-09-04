@@ -6,7 +6,7 @@ const List = (props) => {
 	return (
 		// create a ul
 		<ul>
-			{props.listItems.map((movie, i) => <li key={i}>{[ movie ]}</li>)}
+			{props.listItems.map((movie, i) => <li key={i}>{movie}</li>)}
 			{/* <div>hello{props.listItems}</div> */}
 		</ul>
 		// inside the ul loop over movies from props
