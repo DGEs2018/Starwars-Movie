@@ -1,4 +1,5 @@
 import React, { useState } from 'react'; // imports the React package and the useState component to be able to use that later
+import axios from 'axios';
 import './Components/List.css'; // imports the List.css file
 import { movies, characters } from './data'; // imports the data from the data.js file, using named imports (in this case the variables movies and characters) instead of default component import
 import List from './Components/List'; // import the List component as we will render it below later
