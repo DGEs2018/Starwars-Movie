@@ -6,8 +6,8 @@ export const movies = [
 	'Sweet November'
 ];
 
-// make an array for characters as well
+// create an array containing a list of movies and export it, with the word export before the const - named export (this exports a specific variable)
 
 export const characters = [ 'Keanu Reeves', 'Lost his name', 'Al Pacino', 'Leonardo De Caprio', 'Reese Witherspoon' ];
 
-// export { movies, characters };
+// create an array containing a list of characters and export it, with the word export before the const - named export (this selectively exports variable within a file)
