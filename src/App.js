@@ -7,6 +7,8 @@ import List from './Components/List'; // import the List component as we will re
 function App(props) {
 	// define a new State and store it a variable called showMovies, and initialize this to be true
 	const [ showMovies, setShowMovies ] = useState(true);
+	//
+	const [ movieCharacterData, setMovieCharacterData ] = useState({ people: [] });
 
 	const handleShowMovies = () => {
 		// initialise the showMovies variable to true, meaning when user clicks at the movies button only movies are going to be shown
