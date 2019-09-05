@@ -5,21 +5,10 @@ import './Components/List.css';
 import { movies, characters } from './data';
 import List from './Components/List';
 import ListItem from './Components/ListItem';
-// import ListItem from './Components/ListItem';
 
 function App(props) {
-	// const [ listCharacters, setListCharacters ] = useState(false);
+	// define a new State and store it a variable called showMovies, and initialize this to be true
 	const [ showMovies, setShowMovies ] = useState(true);
-
-	/* const showMovies = [ 'Starwars 1', 'Starwars 2', 'A New Hope' ];
-	const showCharacters = [ 'Luke Skywalker', 'C3PO', 'R2D2' ]; */
-	// const showMovies = movies.map((movie) => <li>{movie}</li>);
-
-	/* const handleShowMovies = () => {
-		// setListMovies(!listMovies); this toggles between on and off as an accordion
-		setListMovies(true);
-		// setListCharacters(false);
-	}; */
 
 	// const listItems = [];
 	const handleShowMovies = () => {
@@ -28,10 +17,6 @@ function App(props) {
 		// !setShowMovies(false);
 	};
 
-	// console.log(handleMovies);
-	// console.log(handleShowMovies);
-
-	// const handleShowMovies = (e) => setListMovies(showMovies);
 	const handleShowCharacters = () => {
 		setShowMovies(false);
 		// setListMovies(false);
@@ -48,23 +33,12 @@ function App(props) {
 						backgroundColor: 'skyblue',
 						border: '1px solid black'
 					}}
+					// onClick event the function handleShowMovies is triggered which then goes to line 14,
+					//ctd. which returns the code on line 16 that then direct the state back to where the state was first initialized.
 					onClick={handleShowMovies}
-					// onClick={handleMovies}
 				>
 					Movies
 				</button>
-				{/* listMovies === true ? (
-					<ul>
-						<li>Starwars 1</li>
-						<li>Starwars 2</li>
-						<li>A New Hope</li>
-					</ul>
-				) : null */}
-				{/* {showMovies ? <List listItems={movies} /> : <List listItems={characters} />} */}
-				{/* if the user clicks on showMovies then the list of movies should be shown, else the list of characters */}
-				{/* {showMovies ? <ListItem movieProp={movieProp} /> : <ListItem characterProp={characterProp}>} */}
-				{/* {showMovies ? { ListItem } : null} */}
-				{/* <ListItem value={value} /> */}
 
 				<List listItems={showMovies ? movies : characters} />
 			</div>
