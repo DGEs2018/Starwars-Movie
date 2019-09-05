@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
-import './Components/List.css';
+import React, { useState } from 'react'; // imports the React package and the useState component to be able to use that later
+import './Components/List.css'; // imports the List.css file
 import { movies, characters } from './data'; // imports the data from the data.js file, using named imports (in this case the variables movies and characters) instead of default component import
-import List from './Components/List';
+import List from './Components/List'; // import the List component as we will render it below later
 
 function App(props) {
 	// define a new State and store it a variable called showMovies, and initialize this to be true
 	const [ showMovies, setShowMovies ] = useState(true);
 
-	// const listItems = [];
 	const handleShowMovies = () => {
 		// initialise the showMovies variable to true, meaning when user clicks at the movies button only movies are going to be shown
 		setShowMovies(true);
@@ -52,15 +51,6 @@ function App(props) {
 				>
 					Characters in the Movies
 				</button>
-				{/* {listCharacters ? <List listItems={characters} /> : null} */}
-
-				{/* listCharacters === true ? (
-					<ul>
-						<li>Skywalker</li>
-						<li>C3PO</li>
-						<li>R2D2</li>
-					</ul>
-				) : null */}
 			</div>
 		</div>
 	);
