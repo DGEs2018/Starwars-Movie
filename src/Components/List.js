@@ -1,22 +1,15 @@
 import React from 'react';
-import ListItem from './ListItem';
+import ListItem from './ListItem'; // import the newly created ListItem component that we will call below
 
 const List = (props) => {
-	// console.log(props);
-	// console.log(props.listItems);
 	return (
 		// create a ul
 		<ul>
+			{/* loop over movies from props and have them populate lists, which we now have as ListItem component */}
 			{props.listItems.map((element, i) => <ListItem key={i} element={element} />)}
 			{/* <div>hello{props.listItems}</div> */}
 			{}
 		</ul>
-		// inside the ul loop over movies from props
-
-		// <div>
-		// 	<div movies={movies}>{props.movies.value}</div>
-		// 	<div characters={characters}>{props.characters.value}</div>
-		// </div>
 	);
 };
 
