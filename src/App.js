@@ -1,14 +1,46 @@
-import React, { useState } from 'react'; // imports the React package and the useState component to be able to use that later
-import axios from 'axios';
+import React, { useState, useEffect } from 'react'; // imports the React package, the useState & the useEffect components to be able as these will be used later
 import './Components/List.css'; // imports the List.css file
-import { movies, characters } from './data'; // imports the data from the data.js file, using named imports (in this case the variables movies and characters) instead of default component import
+import { characters } from './data'; // imports the data from the data.js file, using named imports (in this case the variables movies and characters) instead of default component import
 import List from './Components/List'; // import the List component as we will render it below later
+// import { async } from 'q';
 
 function App(props) {
 	// define a new State and store it a variable called showMovies, and initialize this to be true
-	const [ showMovies, setShowMovies ] = useState(true);
-	//
-	const [ movieCharacterData, setMovieCharacterData ] = useState({ people: [] });
+	const [ showMovies, setShowMovies ] = useState(false);
+	const [ films, setFilms ] = useState([]);
+	const [ showCharacters, setShowCharacters ] = useState(false);
+	const [ people, setPeople ] = useState([]);
+
+	// const [ movieCharacterData, setMovieCharacterData ] = useState({ people: [] });
+	useEffect(
+		() => {
+			async function getMovieCharacter() {
+				// let movies = [];
+
+				if (showMovies) {
+					const movieApiCall = await fetch('https://swapi.co/api/films/');
+					const movieData = await movieApiCall.json();
+					console.log(showMovies);
+					const movieTitle = movieData.results.flatMap((e) => e.title);
+					setFilms(movieTitle);
+					console.log(movieTitle);
+					// setShowMovies(false);
+				} else if (showCharacters) {
+					const characterApiCall = await fetch('https://swapi.co/api/people');
+					const characterData = await characterApiCall.json();
+					console.log(showCharacters);
+					const movieCharacter = characterData.results.flatMap((e) => e.people);
+					setPeople(movieCharacter);
+
+					// setShowCharacters(movieCharacter);
+				}
+				// console.log(onlyMovies);
+			}
+
+			getMovieCharacter();
+		},
+		[ showMovies ]
+	);
 
 	const handleShowMovies = () => {
 		// initialise the showMovies variable to true, meaning when user clicks at the movies button only movies are going to be shown
@@ -18,6 +50,7 @@ function App(props) {
 	const handleShowCharacters = () => {
 		// initialise the showMovies variable to false, meaning when user clicks at the movies button characters are not going to be shown
 		setShowMovies(false);
+		// setShowCharacters(true);
 	};
 
 	return (
@@ -38,7 +71,8 @@ function App(props) {
 					Movies
 				</button>
 				{/* the List component is now being rendered. The code statement of the prop named listItems is declared that it can have its state set to either movies or characters  */}
-				<List listItems={showMovies ? movies : characters} />
+				<List listItems={showMovies ? films : people} />
+				{/* {JSON.stringify(films)} */}
 			</div>
 			<div style={{ display: 'flex', flexDirection: 'column', marginTop: '50px' }}>
 				<button
